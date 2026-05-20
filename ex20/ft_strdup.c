@@ -1,55 +1,64 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhcosta- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/20 15:45:11 by jhcosta-          #+#    #+#             */
-/*   Updated: 2026/05/20 15:45:14 by jhcosta-         ###   ########.fr       */
+/*   Created: 2026/05/20 16:18:50 by jhcosta-          #+#    #+#             */
+/*   Updated: 2026/05/20 16:18:52 by jhcosta-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <unistd.h>
+#include <unistd.h>
+#include <stdlib.h>
 
-int	ft_strcmp(char *s1, char *s2)
+char	*ft_strdup(char *src)
 {
-	int	i;
+	int		len;
+	int		i;
+	char	*copy;
 
+	len = 0;
+	while (src[len])
+		len++;
+	copy = malloc(sizeof(char) * (len + 1));
+	if (copy == NULL)
+		return (NULL);
 	i = 0;
-	while (s1[i] == s2[i] && s1[i] != '\0')
+	while (src[i])
 	{
+		copy[i] = src[i];
 		i++;
 	}
-	return (s1[i] - s2[i]);
+	copy[i] = '\0';
+	return (copy);
 }
 
-/* void	ft_putchar(char c)
+void	ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
 
-void	ft_putnbr(int nb)
+void	ft_putstr(char *str)
 {
-	long	nbr;
+	int	i;
 
-	nbr = nb;
-	if (nbr < 0)
+	i = 0;
+	while (str[i])
 	{
-		ft_putchar('-');
-		nbr *= -1;
+		ft_putchar(str[i]);
+		i++;
 	}
-	if (nbr >= 10)
-		ft_putnbr(nbr / 10);
-	ft_putchar(nbr % 10 + '0');
 }
 
-int	main(int argc, char **argv)
+int	main(void)
 {
-	if (argc != 3)
-		return (0);
-	ft_putnbr(ft_strcmp(argv[1], argv[2]));
+	char	*copy;
+
+	copy = ft_strdup("Hello");
+	ft_putstr(copy);
 	write(1, "\n", 1);
+	free(copy);
 	return (0);
 }
- */

@@ -1,42 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_foreach.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhcosta- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/20 15:44:09 by jhcosta-          #+#    #+#             */
-/*   Updated: 2026/05/20 15:44:22 by jhcosta-         ###   ########.fr       */
+/*   Created: 2026/05/20 19:28:17 by jhcosta-          #+#    #+#             */
+/*   Updated: 2026/05/20 19:28:19 by jhcosta-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <unistd.h>
 
-void	ft_putchar(char c);
-
-/* void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
- */
-void	ft_putstr(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		ft_putchar(str[i]);
-		i++;
-	}
-}
-
-/* int	main(int argc, char **argv)
-{
-	if (argc != 2)
-		return (0);
-	ft_putstr(argv[1]);
-	write(1, "\n", 1);
-	return (0);
-}
- */
