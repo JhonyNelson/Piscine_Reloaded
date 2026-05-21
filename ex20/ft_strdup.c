@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+//#include <unistd.h>
 #include <stdlib.h>
 
 char	*ft_strdup(char *src)
@@ -35,7 +35,7 @@ char	*ft_strdup(char *src)
 	return (copy);
 }
 
-void	ft_putchar(char c)
+/* void	ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
@@ -62,3 +62,4 @@ int	main(void)
 	free(copy);
 	return (0);
 }
+ */
