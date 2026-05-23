@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+//#include <unistd.h>
 
 int	ft_recursive_factorial(int nb)
 {
@@ -23,7 +23,7 @@ int	ft_recursive_factorial(int nb)
 	return (nb * ft_recursive_factorial(nb - 1));
 }
 
-void	ft_putchar(char c)
+/* void	ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
@@ -44,3 +44,4 @@ int	main(void)
 {
 	ft_putnbr(ft_recursive_factorial(13));
 }
+ */
