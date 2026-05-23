@@ -11,25 +11,32 @@
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <fcnt1.h>
+#include <fcntl.h>
 
 int	main(int argc, char **argv)
 {
 	int		fd;
-	int		bytes;
-	char	buffer[100];
+	int		bytes_read;
+	char	buffer[4096];
 
-	if (argc == 1)
-		write(2, "File name missing. \n", 19);
-	else if (argc > 2)
-		write(2, "Too many arguments. \n", 20);
-	else
+	bytes_read = 0;
+	if (argc < 2)
 	{
-		fd = open(argv[1], O_RDONLY);
-		while ((bytes = read(fd, buffer, 100)) > 0)
-		{
-			write(1, buffer, bytes);
-		}
-		close(fd);
-	}	
+		write(2, "File name missing. \n", 19);
+		return (1);
+	}
+	if (argc > 2)
+	{
+		write(2, "Too many arguments. \n", 20);
+		return (1);
+	}
+	fd = open(argv[1], O_RDONLY);
+	bytes_read = read(fd, buffer, sizeof(buffer));
+	while (bytes_read > 0)
+	{
+		write(1, buffer, bytes_read);
+		bytes_read = read(fd, buffer, sizeof(buffer));
+	}
+	close(fd);
+	return (0);
 }

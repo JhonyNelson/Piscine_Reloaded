@@ -12,17 +12,23 @@
 
 NAME = ft_display_file
 
-SRC = main.c
-
 CC = cc
 
 CFLAGS = -Wall -Wextra -Werror
 
-all:
+SRC = main.c
+
+all: $(NAME)
+
+$(NAME):
 	$(CC) $(CFLAGS) $(SRC) -o $(NAME)
 
 clean:
+	rm -f $(NAME).o
 
-fclean:
+fclean: clean
 	rm -f $(NAME)
-	
+
+re: flcean all
+
+.PHONY: all clean fclean re
